@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DPQ - ĐH Phạm Văn Đồng - Công thức tính điểm theo tổ hợp</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h1
+        style="
+          color: rgb(237, 20, 165);
+          background-color: #aeea9d;
+          text-align: center;
+          font-weight: bold;
+        "
+      >
+        DPQ - ĐẠI HỌC PHẠM VĂN ĐỒNG <br />CHẮP CÁNH ƯỚC MƠ TƯƠNG LAI CỦA BẠN
+      </h1>
+      <form>
+        <div class="row">
+          <div class="col">
+            <h2>Ngữ Văn - Toán - Ngoại ngữ</h2>
+            <div class="row">
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Ngữ Văn"
+                  id="van"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Toán"
+                  id="toan"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Anh Văn"
+                  id="anh"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row">
+              <h2>Khoa học Tự nhiên</h2>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Lý"
+                  id="ly"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Hóa"
+                  id="hoa"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Sinh"
+                  id="sinh"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <h2>Khoa học Xã hội</h2>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Lịch Sử"
+                  id="su"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Địa Lý"
+                  id="dia"
+                />
+              </div>
+              <div class="col">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="GDCD"
+                  id="gdcd"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-success mt-3" id="tinhdiem">
+          Tính điểm theo các tổ hợp
+        </button>
+      </form>
+      <h1>Điểm theo các tổ hợp</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Mã Tổ hợp</th>
+            <th>Các môn tổ hợp</th>
+            <th>Điểm</th>
+            <th>Các ngành có thể Đăng ký</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td class="tentohop">A00</td>
+            <td>Toán - Vật lý - Hóa học</td>
+            <td class="a00"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-primary">
+            <td>2</td>
+            <td class="tentohop">A01</td>
+            <td>Toán - Vật lý - Tiếng Anh</td>
+            <td class="a01"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-active">
+            <td>3</td>
+            <td class="tentohop">B00</td>
+            <td>Toán - Hóa học - Sinh học</td>
+            <td class="b00"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-info">
+            <td>4</td>
+            <td class="tentohop">C00</td>
+            <td>Ngữ văn - Lịch sử - Địa lý</td>
+            <td class="c00"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-danger">
+            <td>5</td>
+            <td class="tentohop">C04</td>
+            <td>Ngữ văn - Toán - Địa lý</td>
+            <td class="c04"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-warning">
+            <td>6</td>
+            <td class="tentohop">C19</td>
+            <td>Ngữ văn - Lịch sử - GDCD</td>
+            <td class="c19"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-dark">
+            <td>7</td>
+            <td class="tentohop">C20</td>
+            <td>Ngữ văn - Địa lý - GDCD</td>
+            <td class="c20"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-success">
+            <td>8</td>
+            <td class="tentohop">D01</td>
+            <td>Ngữ văn - Toán - Tiếng Anh</td>
+            <td class="d01"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-light">
+            <td>9</td>
+            <td class="tentohop">D10</td>
+            <td>Toán - Địa lý - Tiếng Anh</td>
+            <td class="d10"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-info">
+            <td>10</td>
+            <td class="tentohop">D78</td>
+            <td>Ngữ văn - Khoa học Xã hội - Tiếng Anh</td>
+            <td class="d78"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-warning">
+            <td>11</td>
+            <td class="tentohop">D84</td>
+            <td>Toán - GDCD - Tiếng Anh</td>
+            <td class="d84"></td>
+            <td class="nganh"></td>
+          </tr>
+          <tr class="table-danger">
+            <td>12</td>
+            <td class="tentohop">D90</td>
+            <td>Toán - Khoa học Tự nhiên - Tiếng Anh</td>
+            <td class="d90"></td>
+            <td class="nganh"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      document.querySelector("#tinhdiem").addEventListener("click", () => {
+        const toan = document.querySelector("#toan").value;
+        const ly = document.querySelector("#ly").value;
+        const hoa = document.querySelector("#hoa").value;
+        const sinh = document.querySelector("#sinh").value;
+        const van = document.querySelector("#van").value;
+        const anh = document.querySelector("#anh").value;
+        const su = document.querySelector("#su").value;
+        const dia = document.querySelector("#dia").value;
+        const gdcd = document.querySelector("#gdcd").value;
+        //tinh diem cac to hop
+        document.querySelector(".a00").innerHTML =
+          parseFloat(toan) + parseFloat(ly) + parseFloat(hoa);
+        document.querySelector(".a01").innerHTML =
+          parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
+        document.querySelector(".b00").innerHTML =
+          parseFloat(toan) + parseFloat(hoa) + parseFloat(sinh);
+        document.querySelector(".c00").innerHTML =
+          parseFloat(van) + parseFloat(su) + parseFloat(dia);
+        document.querySelector(".c04").innerHTML =
+          parseFloat(van) + parseFloat(toan) + parseFloat(ly);
+        document.querySelector(".c19").innerHTML =
+          parseFloat(van) + parseFloat(su) + parseFloat(gdcd);
+        document.querySelector(".c20").innerHTML =
+          parseFloat(van) + parseFloat(ly) + parseFloat(gdcd);
+        document.querySelector(".d01").innerHTML =
+          parseFloat(van) + parseFloat(toan) + parseFloat(anh);
+        document.querySelector(".d10").innerHTML =
+          parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
+        document.querySelector(".d78").innerHTML = (
+          parseFloat(van) +
+          (parseFloat(su) + parseFloat(dia) + parseFloat(gdcd)) / 3 +
+          parseFloat(anh)
+        ).toFixed(1);
+        document.querySelector(".d90").innerHTML = (
+          parseFloat(toan) +
+          (parseFloat(hoa) + parseFloat(ly) + parseFloat(sinh)) / 3 +
+          parseFloat(anh)
+        ).toFixed(1);
+        document.querySelector(".d84").innerHTML =
+          parseFloat(toan) + parseFloat(gdcd) + parseFloat(anh);
+
+        // cac nganh va to hop xet tuyen
+        const list_nganh = [
+          {
+            ten: "Sư phạm Tin học",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 27,
+          },
+          {
+            ten: "Sư phạm Vật lý",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 26,
+          },
+          {
+            ten: "Sư phạm Ngữ văn",
+            tohop: ["C00", "D78", "C19", "C20"],
+            nguongvao: 25,
+          },
+          {
+            ten: "Sư phạm Tiếng Anh",
+            tohop: ["D01", "D78", "D84", "D90"],
+            nguongvao: 24,
+          },
+          {
+            ten: "Sư phạm Toán học",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 23,
+          },
+          {
+            ten: "Sư phạm Tiểu học",
+            tohop: ["A00", "A01", "C00", "D01"],
+            nguongvao: 22,
+          },
+          {
+            ten: "Sư phạm Khoa học Tự nhiên",
+            tohop: ["A00", "B00", "D01", "D90"],
+            nguongvao: 21,
+          },
+          {
+            ten: "Công nghệ Thông tin",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 20,
+          },
+          {
+            ten: "Công nghệ Kỹ thuật Cơ khí",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 19,
+          },
+          {
+            ten: "Kỹ thuật Cơ - Điện tử",
+            tohop: ["A00", "A01", "D01", "D90"],
+            nguongvao: 18,
+          },
+          {
+            ten: "Kinh tế Phát triển",
+            nguongvao: 17,
+            tohop: ["C04", "C20", "D01", "D10"],
+          },
+          {
+            ten: "Quản trị Kinh doanh",
+            nguongvao: 16,
+            tohop: ["C04", "C20", "D01", "D10"],
+          },
+          {
+            ten: "Marketing",
+            nguongvao: 15,
+            tohop: ["C04", "C20", "D01", "D10"],
+          },
+          {
+            ten: "Công nghệ Kỹ thuật Oto",
+            nguongvao: 14,
+            tohop: ["A00", "A01", "D01", "D90"],
+          },
+          //   {
+          //     ten: "Giáo dục Mầm non",
+          //     tohop: ["A00", "A01", "D01", "D90"],
+          //   },
+        ];
+        document.querySelectorAll(".nganh").forEach((nganhel) => {
+          //   console.log(nganh);
+          const matohop =
+            nganhel.parentNode.querySelector(".tentohop").textContent;
+          console.log(matohop);
+
+          const diem = nganhel.previousElementSibling.textContent; //diem dat duoc cua to hop do
+          console.log(diem);
+
+          const cacnganhthoaiman = list_nganh.filter(
+            (nganh) => nganh.tohop.includes(matohop) && diem >= nganh.nguongvao
+          );
+          //   console.log(cacnganhthoaiman);
+
+          //xem td chua diem truoc do bao nhieu - neu NaN khong can hien thi
+
+          //dien thong tin cac nganh thoa man vao
+          if (diem != "NaN")
+            nganhel.innerHTML = cacnganhthoaiman
+              .map((ng) => ng.ten + " (" + ng.nguongvao + ")")
+              .join("<br>");
+        });
+      });
+    </script>
+  </body>
+</html>
