@@ -24,7 +24,7 @@
       </h1>
       <form>
         <div class="row">
-          <div class="col">
+          <div class="col-md-6">
             <h2>Ngữ Văn - Toán - Ngoại ngữ</h2>
             <div class="row">
               <div class="col">
@@ -53,7 +53,7 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col-md-6">
             <div class="row">
               <h2>Khoa học Tự nhiên</h2>
               <div class="col">
@@ -110,7 +110,27 @@
             </div>
           </div>
         </div>
-
+        <div class="bonus">
+          <h2>Điểm khu vực - ưu tiên</h2>
+          <div class="row">
+            <div class="col">
+              <select class="form-control" name="khuvuc" id="khuvuc">
+                <option value="0">Chọn Khu vực</option>
+                <option value="0.75">Khu vực 1</option>
+                <option value="0.5">Khu vực 2</option>
+                <option value="0.25">Khu vực 2 NT</option>
+                <option value="0">Khu vực 3</option>
+              </select>
+            </div>
+            <div class="col">
+              <select class="form-control" name="doituong" id="doituong">
+                <option value="0">Chọn đối tượng ưu tiên</option>
+                <option value="2">Đối tượng 1</option>
+                <option value="1">Đối tượng 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
         <button type="button" class="btn btn-success mt-3" id="tinhdiem">
           Tính điểm theo các tổ hợp
         </button>
@@ -225,37 +245,97 @@
         const su = document.querySelector("#su").value;
         const dia = document.querySelector("#dia").value;
         const gdcd = document.querySelector("#gdcd").value;
+
+        // //diem KHTN va KHXH
+        // const khtn = (parseFloat(hoa) + parseFloat(ly) + parseFloat(sinh)) / 3;
+        // const khxh = (parseFloat(su) + parseFloat(dia) + parseFloat(gdcd)) / 3;
+        // // console.log(khtn, khxh);
+        // const diemthi =
+        //   parseFloat(toan) +
+        //   parseFloat(van) +
+        //   parseFloat(anh) +
+        //   (!Number.isNaN(khtn) ? khtn : khxh);
+        // console.log(diemthi);
+        const diemcong =
+          parseFloat(document.querySelector("#khuvuc").value) +
+          parseFloat(document.querySelector("#doituong").value);
+
         //tinh diem cac to hop
+        const diema00 = parseFloat(toan) + parseFloat(ly) + parseFloat(hoa);
         document.querySelector(".a00").innerHTML =
-          parseFloat(toan) + parseFloat(ly) + parseFloat(hoa);
+          diema00 > 22.5
+            ? (diema00 + ((30 - diema00) / 7.5) * diemcong).toFixed(2)
+            : (diema00 + diemcong).toFixed(2);
+        const diema01 = parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
         document.querySelector(".a01").innerHTML =
-          parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
+          diema01 > 22.5
+            ? (diema01 + ((30 - diema01) / 7.5) * diemcong).toFixed(2)
+            : (diema01 + diemcong).toFixed(2);
+
+        const diemb00 = parseFloat(toan) + parseFloat(hoa) + parseFloat(sinh);
         document.querySelector(".b00").innerHTML =
-          parseFloat(toan) + parseFloat(hoa) + parseFloat(sinh);
+          diemb00 > 22.5
+            ? (diemb00 + ((30 - diemb00) / 7.5) * diemcong).toFixed(2)
+            : (diemb00 + diemcong).toFixed(2);
+
+        const diemc00 = parseFloat(van) + parseFloat(su) + parseFloat(dia);
         document.querySelector(".c00").innerHTML =
-          parseFloat(van) + parseFloat(su) + parseFloat(dia);
+          diemc00 > 22.5
+            ? (diemc00 + ((30 - diemc00) / 7.5) * diemcong).toFixed(2)
+            : (diemc00 + diemcong).toFixed(2);
+
+        const diemc04 = parseFloat(van) + parseFloat(toan) + parseFloat(ly);
         document.querySelector(".c04").innerHTML =
-          parseFloat(van) + parseFloat(toan) + parseFloat(ly);
+          diemc04 > 22.5
+            ? (diemc04 + ((30 - diemc04) / 7.5) * diemcong).toFixed(2)
+            : (diemc04 + diemcong).toFixed(2);
+
+        const diemc19 = parseFloat(van) + parseFloat(su) + parseFloat(gdcd);
         document.querySelector(".c19").innerHTML =
-          parseFloat(van) + parseFloat(su) + parseFloat(gdcd);
+          diemc19 > 22.5
+            ? (diemc19 + ((30 - diemc19) / 7.5) * diemcong).toFixed(2)
+            : (diemc19 + diemcong).toFixed(2);
+
+        const diemc20 = parseFloat(van) + parseFloat(ly) + parseFloat(gdcd);
         document.querySelector(".c20").innerHTML =
-          parseFloat(van) + parseFloat(ly) + parseFloat(gdcd);
+          diemc20 > 22.5
+            ? (diemc20 + ((30 - diemc20) / 7.5) * diemcong).toFixed(2)
+            : (diemc20 + diemcong).toFixed(2);
+
+        const diemd01 = parseFloat(van) + parseFloat(toan) + parseFloat(anh);
         document.querySelector(".d01").innerHTML =
-          parseFloat(van) + parseFloat(toan) + parseFloat(anh);
+          diemd01 > 22.5
+            ? (diemd01 + ((30 - diemd01) / 7.5) * diemcong).toFixed(2)
+            : (diemd01 + diemcong).toFixed(2);
+
+        const diemd10 = parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
         document.querySelector(".d10").innerHTML =
-          parseFloat(toan) + parseFloat(ly) + parseFloat(anh);
-        document.querySelector(".d78").innerHTML = (
+          diemd10 > 22.5
+            ? (diemd10 + ((30 - diemd10) / 7.5) * diemcong).toFixed(2)
+            : (diemd10 + diemcong).toFixed(2);
+
+        const diem78 =
           parseFloat(van) +
           (parseFloat(su) + parseFloat(dia) + parseFloat(gdcd)) / 3 +
-          parseFloat(anh)
-        ).toFixed(1);
-        document.querySelector(".d90").innerHTML = (
+          parseFloat(anh);
+        document.querySelector(".d78").innerHTML =
+          diem78 > 22.5
+            ? (diem78 + ((30 - diem78) / 7.5) * diemcong).toFixed(2)
+            : (diem78 + diemcong).toFixed(2);
+
+        const diem90 =
           parseFloat(toan) +
           (parseFloat(hoa) + parseFloat(ly) + parseFloat(sinh)) / 3 +
-          parseFloat(anh)
-        ).toFixed(1);
+          parseFloat(anh);
+        document.querySelector(".d90").innerHTML =
+          diem90 > 22.5
+            ? (diem90 + ((30 - diem90) / 7.5) * diemcong).toFixed(2)
+            : (diem90 + diemcong).toFixed(2);
+        const diemd84 = parseFloat(toan) + parseFloat(gdcd) + parseFloat(anh);
         document.querySelector(".d84").innerHTML =
-          parseFloat(toan) + parseFloat(gdcd) + parseFloat(anh);
+          diemd84 > 22.5
+            ? (diemd84 + ((30 - diemd84) / 7.5) * diemcong).toFixed(2)
+            : (diemd84 + diemcong).toFixed(2);
 
         // cac nganh va to hop xet tuyen
         const list_nganh = [
